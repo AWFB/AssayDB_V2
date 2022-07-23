@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const assayRoutes = require('./routes/assays')
+const userRoutes = require('./routes/user')
 
 const app = express()
 const mongoose = require('mongoose')
@@ -14,6 +15,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/assays', assayRoutes)
+app.use('/api/user', userRoutes)
 
 // Connect to DB and start server if connected
 mongoose

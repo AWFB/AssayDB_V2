@@ -28,11 +28,11 @@ const getAssay = async (req, res) => {
 
 //? Create new Assay
 const createAssay = async (req, res) => {
-  const { formData } = req.body
 
   // add assay to db
   try {
-    const assay = await Assay.create({ formData })
+    const assayData = req.body
+    const assay = await Assay.create(assayData)
     res.status(200).json(assay)
   } catch (error) {
     res.status(400).json({ error: error.message })
